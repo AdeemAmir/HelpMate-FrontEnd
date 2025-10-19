@@ -28,7 +28,7 @@ export default function RegisterPage() {
 
     // Validate passwords match
     if (formData.password !== formData.confirmPassword) {
-      //toasterror('Passwords do not match')
+      
       setLoading(false)
       return
     }
