@@ -98,12 +98,12 @@ export default function AddVitalsPage() {
 
       await api.post('/vitals', vitalsData, token)
       
-      //toastsuccess('Vitals recorded successfully!')
+      console.log('Vitals recorded successfully!')
       reset()
       router.push('/vitals')
     } catch (error) {
       console.error('Vitals submission error:', error)
-      //toasterror(error instanceof Error ? error.message : 'Failed to record vitals')
+      console.error(error instanceof Error ? error.message : 'Failed to record vitals')
     } finally {
       setSubmitting(false)
     }

@@ -69,7 +69,7 @@ export default function UploadPage() {
     const newFiles = acceptedFiles.filter(file => {
       const isValidType = file.type.startsWith('image/') || file.type === 'application/pdf'
       if (!isValidType) {
-        //toasterror(`${file.name} is not a supported file type. Please upload images or PDFs.`)
+        console.error(`${file.name} is not a supported file type. Please upload images or PDFs.`)
         return false
       }
       return true
@@ -93,7 +93,7 @@ export default function UploadPage() {
 
   const onSubmit = async (data: UploadFormData) => {
     if (uploadedFiles.length === 0) {
-      //toasterror('Please select at least one file to upload')
+      console.error('Please select at least one file to upload')
       return
     }
 
@@ -116,7 +116,7 @@ export default function UploadPage() {
       const response = await api.upload('/files/upload', formData, token)
       
       setUploadProgress(100)
-      //toastsuccess('Files uploaded successfully! AI is processing your reports...')
+      console.log('Files uploaded successfully! AI is processing your reports...')
       
       // Reset form and files
       reset()
@@ -127,7 +127,7 @@ export default function UploadPage() {
       router.push('/reports')
     } catch (error) {
       console.error('Upload error:', error)
-      //toasterror(error instanceof Error ? error.message : 'Upload failed')
+      console.error(error instanceof Error ? error.message : 'Upload failed')
     } finally {
       setUploading(false)
     }

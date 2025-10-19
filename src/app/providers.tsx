@@ -125,11 +125,11 @@ export function Providers({ children }: { children: React.ReactNode }) {
       setToken(userToken)
       localStorage.setItem('healthmate_token', userToken)
       
-      //toastsuccess('Login successful!')
+      console.log('Login successful!')
       router.push('/dashboard')
     } catch (error) {
       console.error('Login error:', error)
-      //toasterror(error instanceof Error ? error.message : 'Login failed')
+      console.error(error instanceof Error ? error.message : 'Login failed')
       throw error
     } finally {
       setLoading(false)
@@ -161,11 +161,11 @@ export function Providers({ children }: { children: React.ReactNode }) {
       setToken(userToken)
       localStorage.setItem('healthmate_token', userToken)
       
-      //toastsuccess('Registration successful!')
+      console.log('Registration successful!')
       router.push('/dashboard')
     } catch (error) {
       console.error('Registration error:', error)
-      //toasterror(error instanceof Error ? error.message : 'Registration failed')
+      console.error(error instanceof Error ? error.message : 'Registration failed')
       throw error
     } finally {
       setLoading(false)
@@ -177,7 +177,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
     setUser(null)
     setToken(null)
     localStorage.removeItem('healthmate_token')
-    //toastsuccess('Logged out successfully')
+    console.log('Logged out successfully')
     router.push('/')
   }
 
@@ -202,10 +202,10 @@ export function Providers({ children }: { children: React.ReactNode }) {
       }
 
       setUser(data.data.user)
-      //toastsuccess('Profile updated successfully')
+      console.log('Profile updated successfully')
     } catch (error) {
       console.error('Update user error:', error)
-      //toasterror(error instanceof Error ? error.message : 'Update failed')
+      console.error(error instanceof Error ? error.message : 'Update failed')
       throw error
     }
   }
